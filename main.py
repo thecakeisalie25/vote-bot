@@ -35,7 +35,7 @@ async def ask(
 
 @bot.command(aliases = ["mkch", "mkchannel"], brief = "Nope, not yet.")
 async def addChannel(context: Context):
-	context.send("Sorry, placeholder.")
+	await context.send("Sorry, placeholder.")
 	pass;
 
 
