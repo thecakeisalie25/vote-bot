@@ -48,7 +48,10 @@ async def addChannel(context: Context):
 	pass;
 
 
-@bot.command(aliases = ["test"])
+@bot.command(aliases = ["tAsk"], brief = "Test of the ask parameters function.",
+	description = " --- testAsk - Just a simple test command, for asking questions ---",
+	help = dedent("""\
+		Tests the ask() function, which asks the user a question and validates the response."""))
 async def testAsk(context: Context):
 	def testInt(msg): 
 		try:
