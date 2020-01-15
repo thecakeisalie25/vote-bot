@@ -21,6 +21,10 @@ async def on_ready():
 			bot.user, bot.user.id, owner
 		)))
 
+@bot.event
+async def on_command_error(context: Context, error):
+	await context.send
+
 async def ask(
 	context: Context,
 	question: str, 
@@ -50,8 +54,7 @@ async def addChannel(context: Context):
 
 @bot.command(aliases = ["tAsk"], brief = "Test of the ask parameters function.",
 	description = " --- testAsk - Just a simple test command, for asking questions ---",
-	help = dedent("""\
-		Tests the ask() function, which asks the user a question and validates the response."""))
+	help = "Tests the ask() function, which asks the user a question and validates the response.")
 async def testAsk(context: Context):
 	def testInt(msg): 
 		try:
@@ -63,10 +66,15 @@ async def testAsk(context: Context):
 	if tempInt:
 		await context.send("You entered: " + tempInt.content)
 
+@bot.command(brief = "Test of default parameters",
+	description = " --- testParams - Testing default parameters, rather than asking.",
+	help = "Given 2 ints and a string, adds the 2 ints and writes the string that many times.",)
+async def testParams(context: Context, a: int, b: int, string: str):
+	await context.send(string * (a+b))
+
 @bot.command(brief = "hello my friend")
 async def ping(context: Context):
 	await context.channel.send("i am going to yeet")
-
 
 
 

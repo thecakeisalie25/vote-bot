@@ -8,6 +8,8 @@ pylint = "*"
 
 [packages]
 rewrite = {git = "https://github.com/Rapptz/discord.py"}
+image-kit = "*"
+color-names = "*"
 
 [requires]
 python_version = "3.8"
